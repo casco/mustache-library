@@ -12,7 +12,7 @@ BaselineOfMustacheLibrary >> baseline: spec [
 		spec repository: 'bitbucket://casco/mustache-library'.
 		self mustache: spec.
 		spec
-			package: 'Mustahe-Library'
+			package: 'Mustache-Library'
 			with: [ spec requires: #( 'Mustache' ) ] ]
 ]
 
