@@ -5,6 +5,24 @@ Class {
 }
 
 { #category : #templates }
+ExampleMustacheLibrary >> collectionExample [
+^'A list of numbers
+{{# list }}Number: {{ number }} 
+{{/ list }}'
+]
+
+{ #category : #templates }
+ExampleMustacheLibrary >> collectionExample_exampleContext [
+^' {
+   "label" : "fine",
+    "list" : [
+            { "number" : 1 } ,
+            { "number" : 2 } 
+        ] 
+} '
+]
+
+{ #category : #templates }
 ExampleMustacheLibrary >> pharoBookExample [
 ^'Hello {{ name }} 
 You have just won ${{value}}!{{#in_ca}}

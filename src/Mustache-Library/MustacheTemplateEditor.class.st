@@ -8,7 +8,9 @@ Class {
 		'notebook',
 		'templatePresenter',
 		'exampleContextPresenter',
-		'exampleResultPresenter'
+		'exampleResultPresenter',
+		'errorWhenParsingTemplate',
+		'errorWhenParsingContext'
 	],
 	#category : #'Mustache-Library-Tools'
 }
@@ -134,6 +136,18 @@ MustacheTemplateEditor >> exampleContext [
 			  self selectedLibraryClass new perform: method selector ] ]
 ]
 
+{ #category : #private }
+MustacheTemplateEditor >> exampleContextAsDictionary [
+
+	^ [
+	  errorWhenParsingContext := false.
+	  NeoJSONReader fromString: self exampleContext ]
+		  on: Error
+		  do: [
+			  errorWhenParsingContext := true.
+			  Dictionary new ]
+]
+
 { #category : #constants }
 MustacheTemplateEditor >> exampleContextSuffix [
 
@@ -143,13 +157,21 @@ MustacheTemplateEditor >> exampleContextSuffix [
 { #category : #accessing }
 MustacheTemplateEditor >> exampleResult [
 
-	^ (MustacheTemplate on: self template) value: (NeoJSONReader fromString: self exampleContext)
+	^ (MustacheTemplate on: self template) value: self exampleContextAsDictionary
 ]
 
 { #category : #initialization }
 MustacheTemplateEditor >> initialExtent [
 
 	^ (900 @ 600) scaledByDisplayScaleFactor
+]
+
+{ #category : #initialization }
+MustacheTemplateEditor >> initialize [
+
+	super initialize.
+	errorWhenParsingTemplate := false.
+	errorWhenParsingContext := false
 ]
 
 { #category : #initialization }
