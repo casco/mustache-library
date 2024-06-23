@@ -1,3 +1,6 @@
+"
+MustacheTemplateEditor new open
+"
 Class {
 	#name : #MustacheTemplateEditor,
 	#superclass : #SpPresenter,
