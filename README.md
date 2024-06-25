@@ -6,7 +6,7 @@ You can load this librady using Metacello
 ```Smalltalk
 Metacello new
   repository: 'github://casco/mustache-library/src:main';
-  baseline: 'NeoJSON';
+  baseline: 'MustacheLibrary';
   load.
 ```
 
