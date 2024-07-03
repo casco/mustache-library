@@ -5,7 +5,7 @@ You can load this librady using Metacello
 
 ```Smalltalk
 Metacello new
-  repository: 'github://casco/mustache-library/src:main';
+  repository: 'github://casco/mustache-library:main';
   baseline: 'MustacheLibrary';
   load.
 ```
@@ -13,7 +13,7 @@ Metacello new
 You can use the following dependency from your own Metacello configuration or baseline
 
 ```Smalltalk
-spec baseline: 'MustacheLibrary' with: [ spec repository: 'github://casco/mustache-library/src:main' ].
+spec baseline: 'MustacheLibrary' with: [ spec repository: 'github://casco/mustache-library:main' ].
 ```
 
 # Open the editor
